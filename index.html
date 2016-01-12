@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="addres-book">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body ng-controller="peopleCtrl">
+  <h1>Address Book</h1>
+  <div class="wrapper">
+    <div ng-repeat="pep in people | orderBy:'name'" class="contact-item">
+      <div class="name">{{pep.name}} - {{pep.phone}}</div>
+      <span class="email">{{pep.email}}</span>
+    </div>
+  </div>
+  <br>
+
+  <div class="myBtn"><button type="button" name="button" ng-click="showForm()" ng-hide="formNew">Add New Contact</button></div>
+
+  <div class="wrapper" ng-show="formNew">
+    <h2>Add New Contact</h2>
+
+    <div class="form">
+      Name: <input type="text" name="name" ng-model="newContac.name" placeholder="Name">
+    </div>
+
+    <div class="form">
+      Phone: <input type="text" name="phone" ng-model="newContac.phone" placeholder="8010880880">
+    </div>
+
+    <div class="form">
+      e-mail: <input type="email" name="e-mail" ng-model="newContac.email" placeholder="email@mail.com">
+    </div>
+
+    <br>
+
+    <div class="myBtn">
+      <button type="button" name="Save" ng-click="save()">Save</button>
+    </div>
+
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="app.js" charset="utf-8"></script>
+  <script src="peopleCtrl.js" charset="utf-8"></script>
+</body>
+</html>
